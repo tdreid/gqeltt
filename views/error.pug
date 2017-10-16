@@ -1,0 +1,10 @@
+extends layout
+block scripts
+  //- load no scripts
+block content
+  h1
+    i(class='fa fa-exclamation-circle') &nbsp;
+    span= error.status
+    span  -     
+    span= message
+

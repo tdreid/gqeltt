@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  div(tabindex='0', class='container', data-bind='event: {keydown: handleKey}')
+    div(class='row')
+      h2 Which number is larger?
+    div(class='row')
+      div(class='one-half column')
+        h1(data-bind='text: firstNumber')
+      div(class='one-half column')
+        h1(data-bind='text: secondNumber')
+    div(class='row')
+      div(class='one-half column')
+        button(data-bind='click: answerFirst') 
+          i(class='fa fa-arrow-left')
+          span First
+      div(class='one-half column')
+        button(data-bind='click: answerSecond') 
+          span Second
+          i(class='fa fa-arrow-right')
+    div(class='row')
+      div(class='full column')
+        button(data-bind='click: answerEqual')
+          i(class='fa fa-arrow-down')
+          span Equal
+    div(class='row')
+      div(class='one-third column') &nbsp;
+      div(class='one-third column')
+        h3(data-bind="text: lastResult, css: {wrong: lastResult() == 'wrong', correct: lastResult() == 'correct'}")
+      div(class='one-third column') &nbsp;

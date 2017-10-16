@@ -1,0 +1,16 @@
+div {
+  text-align: center;
+  outline: none;
+}
+
+.wrong {
+  color: red;
+  background-color: gainsboro;
+  border-radius: 7px;
+}
+
+.correct {
+  color: green;
+  background-color: gainsboro;
+  border-radius: 7px;
+}
