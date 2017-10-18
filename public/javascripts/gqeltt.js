@@ -1,4 +1,4 @@
-var Yezno = function() {
+var Gqeltt = function() {
   var self = this;
 
   self.firstNumber = ko.observable(0);
@@ -57,6 +57,6 @@ var Yezno = function() {
   }
 };
 
-var yezno = new Yezno();
-ko.applyBindings(yezno);
+var gqeltt = new Gqeltt();
+ko.applyBindings(gqeltt);
 window.focus();
