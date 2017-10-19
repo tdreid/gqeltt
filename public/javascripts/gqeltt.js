@@ -3,48 +3,47 @@ var Gqeltt = function() {
 
   self.firstNumber = ko.observable(0);
   self.secondNumber = ko.observable(0);
-  self.lastResult = ko.observable("");
+  self.lastResult = ko.observable('');
   self.score = ko.observable(0);
   self.asked = ko.observable(0);
 
   askNext();
 
-  self.answerFirst = function() {
-    if (self.firstNumber() > self.secondNumber()) {
+  self.checkAnswer = function(answer) {
+    if (
+      (answer == 0 && self.firstNumber() == self.secondNumber()) ||
+      (answer < 0 && self.firstNumber() > self.secondNumber()) ||
+      (answer > 0 && self.firstNumber() < self.secondNumber())
+    ) {
+      self.score(self.score() + 1);
       self.lastResult('correct');
     } else {
       self.lastResult('wrong');
     }
     askNext();
+  };
+
+  self.answerFirst = function() {
+    self.checkAnswer(-1);
   };
 
   self.answerSecond = function() {
-    if (self.firstNumber() < self.secondNumber()) {
-      self.lastResult('correct');
-    } else {
-      self.lastResult('wrong');
-    }
-    askNext();
+    self.checkAnswer(1);
   };
 
   self.answerEqual = function() {
-    if (self.firstNumber() == self.secondNumber()) {
-      self.lastResult('correct');
-    } else {
-      self.lastResult('wrong');
-    }
-    askNext();
+    self.checkAnswer(0);
   };
 
   self.handleKey = function(data, event) {
     switch (event.code) {
-      case "ArrowLeft":
+      case 'ArrowLeft':
         self.answerFirst();
         break;
-      case "ArrowRight":
+      case 'ArrowRight':
         self.answerSecond();
         break;
-      case "ArrowDown":
+      case 'ArrowDown':
         self.answerEqual();
         break;
     }
