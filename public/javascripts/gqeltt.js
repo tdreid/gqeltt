@@ -1,4 +1,4 @@
-/* global ko */
+/* global ko  _ */
 var Gqeltt = function() {
   var self = this;
 
