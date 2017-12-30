@@ -1,3 +1,4 @@
+/* global ko  _ */
 var Gqeltt = function() {
   var self = this;
 
@@ -35,7 +36,7 @@ var Gqeltt = function() {
     self.checkAnswer(0);
   };
 
-  self.handleKey = function(data, event) {
+  self.handleKey = function(event) {
     switch (event.code) {
       case 'ArrowLeft':
         self.answerFirst();
@@ -58,4 +59,4 @@ var Gqeltt = function() {
 
 var gqeltt = new Gqeltt();
 ko.applyBindings(gqeltt);
-window.focus();
+document.onkeydown = gqeltt.handleKey;
